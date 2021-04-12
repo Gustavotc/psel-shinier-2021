@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:psel_shinier_2021/Screens/Login/components/text_login.dart';
+import 'package:psel_shinier_2021/components/CustomButton.dart';
 import 'package:psel_shinier_2021/components/CustomTextField.dart';
 
-class Body extends StatefulWidget {  
+import 'forgot_password_button.dart';
+import 'use_fingerprint_page.dart';
+
+class Body extends StatefulWidget {   
   @override
   _BodyState createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
+
+  bool _useFingerPrint = true; 
+
   @override
   Widget build(BuildContext context) {
 
     Size size = MediaQuery.of(context).size; //Screen Size
-    bool useFingerPrint = true;
+               //Switch variable
 
     return Container(
       height: size.height,
@@ -26,26 +34,12 @@ class _BodyState extends State<Body> {
               color: Color(0xff4472C4),
               size: 35,
               ),
-            SizedBox(height: size.height * 0.05,),
-            Text(
-              "Entrar",
-              style: TextStyle(
-                color: Color(0xff68A35D),
-                fontSize: 17,
-                fontWeight: FontWeight.w700
-              ),
-            ),
-            SizedBox(height: size.height * 0.01,),
-            Text(
-              "Esqueci a senha",
-              style: TextStyle(
-                color: Color(0xff4472C4),
-                fontSize: 14,
-                fontWeight: FontWeight.w400
-              ),
-            ),
+            SizedBox(height: size.height * 0.05,), //Space between arrow Icon and Login text
+            TextLogin(),                           //Simple Text
+            SizedBox(height: size.height * 0.01,), //Space between Login text and Forgot  my password text
+            ForgotPasswordButton(onTap: (){},),
             SizedBox(height: size.height * 0.03,),
-            CustomTextField(
+            CustomTextField(                                
               hint: "Email",
               onChanged: (value) { /* To-Do onChanged */ },
               password: false,
@@ -61,21 +55,32 @@ class _BodyState extends State<Body> {
                   "Usar leitor de digital",
                   style: TextStyle(color: Colors.white),
                 ),
-                Spacer(),
+                Spacer(), //Space to fill the row       
                 Switch(
-                  value: useFingerPrint, 
-                  onChanged: (value) {
-                    setState(() {   
-                      useFingerPrint = value;
+                  value: _useFingerPrint, 
+                  onChanged: (bool value){
+                    setState(() {
+                      _useFingerPrint = value;
                     });
-                  }
-                  ),
+                  },
+                  ), 
               ],
-            )
+            ), 
+            SizedBox(height: size.height * 0.08,),
+            CustomButton(
+              text: "Entrar",
+              onPressed: (){ useFirgerPrintPage(context); },
+            ),
           ],
         ),
       ),
     );
   }
+    
 }
+
+
+
+
+
 
