@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:psel_shinier_2021/Screens/Login/components/forgot_password_page.dart';
 import 'package:psel_shinier_2021/Screens/Login/components/text_login.dart';
 import 'package:psel_shinier_2021/components/CustomButton.dart';
 import 'package:psel_shinier_2021/components/CustomTextField.dart';
@@ -12,86 +13,89 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  bool _useFingerPrint = true;
+  bool _useFingerPrint = true; //Switch variable
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size; //Screen Size
-    //Switch variable
-
-    return Container(
-      height: size.height,
-      width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.all(25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: Icon(
-                Icons.arrow_back,
-                color: Color(0xff4472C4),
-                size: 35,
+    
+    return SingleChildScrollView(
+          child: Container(
+        height: size.height,
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.all(25),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Color(0xff4472C4),
+                  size: 35,
+                ),
               ),
-            ),
-            SizedBox(
-              height: size.height * 0.05,
-            ), //Space between arrow Icon and Login text
-            TextLogin(), //Simple Text
-            SizedBox(
-              height: size.height * 0.01,
-            ), //Space between Login text and Forgot  my password text
-            ForgotPasswordButton(
-              onTap: () {},
-            ),
-            SizedBox(
-              height: size.height * 0.03,
-            ),
-            CustomTextField(
-              hint: "Email",
-              onChanged: (value) {/* To-Do onChanged */},
-              password: false,
-            ),
-            CustomTextField(
-              hint: "Senha",
-              onChanged: (value) {/* To-Do onChanged */},
-              password: true,
-            ),
-            Row(
-              children: <Widget>[
-                Text(
-                  "Usar leitor de digital",
-                  style: TextStyle(color: Colors.white),
+              SizedBox(
+                height: size.height * 0.05,
+              ), //Space between arrow Icon and Login text
+              TextLogin(), //Simple Text
+              SizedBox(
+                height: size.height * 0.01,
+              ), //Space between Login text and Forgot  my password text
+              SingleChildScrollView(
+                            child: ForgotPasswordButton(
+                  onTap: () {forgotPasswordPage(context);},
                 ),
-                Spacer(), //Space to fill the row
-                Switch(
-                  activeColor: Color(0xff4472C4),
-                  thumbColor: MaterialStateProperty.all(Color(0xFFFFFFFF)),
-                  value: _useFingerPrint,
-                  onChanged: (bool value) {
-                    setState(() {
-                      _useFingerPrint = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.08,
-            ), 
-            CustomButton(
-              text: "Entrar",
-              onPressed: () {
-                FocusScope.of(context).unfocus(); //Removes the keyboard focus to close it (it prevents erros case the login fail)
-                _useFingerPrint
-                    ? useFirgerPrintPage(context)
-                    : () {
-                        /* To-Do onPressed case Switch is off */
-                      };
-              },
-            ),
-          ],
+              ),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
+              CustomTextField(
+                hint: "Email",
+                onChanged: (value) {/* To-Do onChanged */},
+                password: false,
+              ),
+              CustomTextField(
+                hint: "Senha",
+                onChanged: (value) {/* To-Do onChanged */},
+                password: true,
+              ),
+              Row(
+                children: <Widget>[
+                  Text(
+                    "Usar leitor de digital",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Spacer(), //Space to fill the row
+                  Switch(
+                    activeColor: Color(0xff4472C4),
+                    thumbColor: MaterialStateProperty.all(Color(0xFFFFFFFF)),
+                    value: _useFingerPrint,
+                    onChanged: (bool value) {
+                      setState(() {
+                        _useFingerPrint = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: size.height * 0.08,
+              ), 
+              CustomButton(
+                text: "Entrar",
+                onPressed: () {
+                  FocusScope.of(context).unfocus(); //Removes the keyboard focus to close it (it prevents erros case the login fail)
+                  _useFingerPrint
+                      ? useFirgerPrintPage(context)
+                      : () {
+                          /* To-Do onPressed case Switch is off */
+                        };
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
