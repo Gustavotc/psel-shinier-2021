@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 // Class to create a custom TextField
 class CustomTextField extends StatelessWidget {
-
-
   //Variables
-  final String hint;              // Hint Text
-  final ValueChanged onChanged;   // On Valeu changed Function
-  final bool password;            // Obscure text verification
+  final String hint; // Hint Text
+  final ValueChanged onChanged; // On Valeu changed Function
+  final bool password; // Obscure text  and keyboardType verification
 
   //Constructor with required variables
   const CustomTextField({
@@ -21,27 +19,30 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
-        obscureText: password ? true : false,     //If it's a passwoord, hides the text
-        keyboardType: TextInputType.emailAddress, //Defines the keyboard type
+        obscureText:
+            password ? true : false, //If it's a passwoord, hides the text
+        keyboardType: password
+            ? TextInputType.text
+            : TextInputType.emailAddress, //Defines the keyboard type
         decoration: InputDecoration(
-          hintText: hint,                         //Hint text received
+          hintText: hint, //Hint text received
           border: InputBorder.none,
         ),
-        onChanged: onChanged,                     //Value Changed Function received by the constructor
+        onChanged:
+            onChanged, //Value Changed Function received by the constructor
       ),
     );
   }
 }
 
 class TextFieldContainer extends StatelessWidget {
-
   final Widget child; //Final Widget (child) variable
 
-  // Construtor passing widget (child) 
-  const TextFieldContainer({
-    Key key,
-    @required this.child //Variable recieves the parameter
-  }) : super(key: key);
+  // Construtor passing widget (child)
+  const TextFieldContainer(
+      {Key key, @required this.child //Variable recieves the parameter
+      })
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +52,8 @@ class TextFieldContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        ),
-        child: child, //Child recieves the widget from the constructor
+      ),
+      child: child, //Child recieves the widget from the constructor
     );
   }
 }
