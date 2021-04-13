@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:psel_shinier_2021/Screens/Login/components/forgot_password_page.dart';
+import 'package:psel_shinier_2021/Screens/Login/pages/forgot_password_page.dart';
 import 'package:psel_shinier_2021/Screens/Login/components/text_login.dart';
 import 'package:psel_shinier_2021/components/CustomButton.dart';
 import 'package:psel_shinier_2021/components/CustomTextField.dart';
 
 import 'forgot_password_button.dart';
-import 'use_fingerprint_page.dart';
+import '../pages/use_fingerprint_page.dart';
 
+//Class to create the body of the Login in Page
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -17,87 +18,73 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size; //Screen Size
     
-    return SingleChildScrollView(
-          child: Container(
-        height: size.height,
-        width: double.infinity,
-        child: Padding(
+    Size size = MediaQuery.of(context).size; //Screen Size variable
+
+    return SingleChildScrollView( //Page ScrollView to prevent overflow when keyboard pops up
+    physics: NeverScrollableScrollPhysics(),
+      child: Container( //Container with Full screen size
+        height: size.height, // sets Full screen height 
+        width: double.infinity, // sets Full screen widht 
+        child: Padding( //Container content padding
           padding: EdgeInsets.all(25),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column( //Column to organize the screen widgets 
+            crossAxisAlignment: CrossAxisAlignment.start, // Horizontal aligment
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Color(0xff4472C4),
-                  size: 35,
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.05,
-              ), //Space between arrow Icon and Login text
               TextLogin(), //Simple Text
-              SizedBox(
-                height: size.height * 0.01,
-              ), //Space between Login text and Forgot  my password text
-              SingleChildScrollView(
-                            child: ForgotPasswordButton(
-                  onTap: () {forgotPasswordPage(context);},
-                ),
+              SizedBox(height: size.height * 0.01,), //Space between Login text and Forgot  my password text
+              ForgotPasswordButton( // Button to show the FotgetPasswordPage
+                onTap: () => forgotPasswordPage(context), //Calls forget password page
               ),
-              SizedBox(
-                height: size.height * 0.03,
-              ),
-              CustomTextField(
+              SizedBox(height: size.height * 0.03,), //Space between Forgot  my password text and Email input textField
+              CustomTextField( //Email input textField 
                 hint: "Email",
                 onChanged: (value) {/* To-Do onChanged */},
-                password: false,
+                password: false, //The content is not a password
               ),
-              CustomTextField(
+              CustomTextField( //Email input textField 
                 hint: "Senha",
                 onChanged: (value) {/* To-Do onChanged */},
-                password: true,
+                password: true, //The content is a password (hides the text and another keyboard type)
               ),
-              Row(
+              Row( //Row to agroup a text and a switch
                 children: <Widget>[
-                  Text(
+                  Text( //press fingerprint sensor text
                     "Usar leitor de digital",
                     style: TextStyle(color: Colors.white),
                   ),
                   Spacer(), //Space to fill the row
-                  Switch(
-                    activeColor: Color(0xff4472C4),
+                  Switch( //Switch to choose use fingerprint or password
+                    activeColor: Color(0xff4472C4), 
                     thumbColor: MaterialStateProperty.all(Color(0xFFFFFFFF)),
-                    value: _useFingerPrint,
-                    onChanged: (bool value) {
-                      setState(() {
-                        _useFingerPrint = value;
+                    value: _useFingerPrint, //Variable to change the switch state
+                    onChanged: (bool value) { //bool value receives the new switch state
+                      setState(() { //setState to update the widget
+                        _useFingerPrint = value; //Changes the local variable value 
                       });
                     },
                   ),
                 ],
               ),
-              SizedBox(
-                height: size.height * 0.08,
-              ), 
-              CustomButton(
+              SizedBox(height: size.height * 0.08,), // Space between the Row and the sign-in button
+              CustomButton( //Sign-in button
                 text: "Entrar",
-                onPressed: () {
-                  FocusScope.of(context).unfocus(); //Removes the keyboard focus to close it (it prevents erros case the login fail)
-                  _useFingerPrint
-                      ? useFirgerPrintPage(context)
-                      : () {
-                          /* To-Do onPressed case Switch is off */
-                        };
-                },
+                onPressed: () => _signin() //calls onPressed Function
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  //Function validate Login 
+  _signin(){
+    FocusScope.of(context).unfocus(); //Removes the keyboard focus to close it (prevents errors case the login fails)
+    _useFingerPrint //Verifies the authentication method
+        ? useFirgerPrintPage(context) //Case true: use fingerprint sensor
+        : () {
+            /* To-Do onPressed case Switch is off */
+          };
   }
 }
