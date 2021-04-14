@@ -7,7 +7,7 @@ import 'Screens/Home/home_screen.dart';
 void main() {
   runApp(MaterialApp(
     title: "Processo Seletivo",
-    home: ProfileScreen(),
+    home: HomeScreen(),
     debugShowCheckedModeBanner: false,
   ));
 }

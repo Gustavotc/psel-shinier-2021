@@ -12,7 +12,7 @@ class ProfileHeader extends StatelessWidget {
 
     return Stack(children: <Widget>[
       Container(
-        height: 215,
+        height: size.height * 0.3,
         width: size.width,
         color: Color(0xffC4C4C4),
         //child: Image.asset(""),

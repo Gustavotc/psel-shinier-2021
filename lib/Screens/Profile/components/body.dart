@@ -16,7 +16,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size; //Screen size variable
+    //Size size = MediaQuery.of(context).size; //Screen size variable
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
