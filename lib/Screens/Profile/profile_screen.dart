@@ -14,7 +14,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: SingleChildScrollView(child: Body())), //Calls Profile Page body
+      body: SafeArea( //ensures that widgets will be displayed
+        child: SingleChildScrollView( //Profile page ScrollView
+          child: Body() //Calls Profile Page body
+          ),
+          ), 
     );
   }
 }

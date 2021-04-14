@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Class to create a custom Widget, similar to a tabBar
 class CustomTextMyProfile extends StatelessWidget {
   const CustomTextMyProfile({
     Key key,
@@ -7,12 +8,12 @@ class CustomTextMyProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Container( //Creates a custom container with bottom border and a text 
       decoration: BoxDecoration(
           border: Border(
         bottom: BorderSide(
           color: Color(0xff4472C4),
-          width: 3,
+          width: 4,
         ),
       )),
       child: Padding(
@@ -20,6 +21,7 @@ class CustomTextMyProfile extends StatelessWidget {
         child: Text(
           "Meus dados",
           style: TextStyle(
+            fontSize: 16,
             color: Color(0xff4472C4),
             ),
             textAlign: TextAlign.start,
