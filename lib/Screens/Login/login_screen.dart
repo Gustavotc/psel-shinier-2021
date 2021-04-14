@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:psel_shinier_2021/Screens/Login/components/body.dart';
 
-//Classe para interface da tela de login 
+//Classe to create the login page interface
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
