@@ -34,17 +34,14 @@ class _BodyState extends State<Body> {
               TextLogin(), //Simple Text
               SizedBox(height: size.height * 0.01,), //Space between Login text and Forgot  my password text
               ForgotPasswordButton( // Button to show the FotgetPasswordPage
-                onTap: () => buildForgotPasswordPage(context), //Calls forget password page
+                onTap: () => _buildForgotPasswordPage(context), //Calls forget password page
               ),
               SizedBox(height: size.height * 0.03,), //Space between Forgot  my password text and Email input textField
               CustomTextField( //Email input textField 
                 hint: "Email",
-                onChanged: (value) {/* To-Do onChanged */},
-                password: false, //The content is not a password
               ),
               CustomTextField( //Email input textField 
                 hint: "Senha",
-                onChanged: (value) {/* To-Do onChanged */},
                 password: true, //The content is a password (hides the text and another keyboard type)
               ),
               Row( //Row to agroup a text and a switch
@@ -78,13 +75,48 @@ class _BodyState extends State<Body> {
     );
   }
 
-  //Function validate Login 
+  //Function to validate Login 
   _signin(){
     FocusScope.of(context).unfocus(); //Removes the keyboard focus to close it (prevents errors case the login fails)
     _useFingerPrint //Verifies the authentication method
-        ? buildUseFirgerPrintPage(context) //Case true: use fingerprint sensor
-        : () {
-            /* To-Do onPressed case Switch is off */
-          };
+        ? _buildUseFirgerPrintPage(context) //Case true: use fingerprint sensor
+        : /* To-Do verify user credencials */
+            Navigator.pushNamed(context, '/home'); //Shows Home page after validation
+  }
+
+  //Function to build the ForgotPasswordPage
+  _buildForgotPasswordPage(context) {
+  
+    showModalBottomSheet( // Open bottom sheet
+        shape: RoundedRectangleBorder(   //Shape of the bottom sheet (top circular borders)
+            borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15),
+            topRight: Radius.circular(15),
+             )
+            ),
+        barrierColor: Colors.white38, //Background color page
+        elevation: 10, //Elevation of the bottom sheet page
+        context: context,
+        builder: (BuildContext bc) {  //Build to create the bottom sheet page
+          return ForgotPasswordPage(); //Shows ForgetPasswordPage
+        });
+  }
+
+  //Function to build the UseFingerPrintPage
+  _buildUseFirgerPrintPage(context){
+
+    showModalBottomSheet( // Open bottom sheet
+        shape: RoundedRectangleBorder(   //Shape of the bottom sheet (top circular borders)
+            borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15),
+            topRight: Radius.circular(15),
+             )
+            ),
+        barrierColor: Colors.white38, //Background color page
+        elevation: 10, //Elevation of the bottom sheet page
+        context: context,
+        builder: (BuildContext bc) {  //Build to create the bottom sheet page
+          return UseFingerPrintPage(); //Shows ForgetPasswordPage
+        });
   }
 }

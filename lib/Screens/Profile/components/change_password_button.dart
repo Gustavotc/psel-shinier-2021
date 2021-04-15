@@ -43,9 +43,9 @@ class ChangePasswordButton extends StatelessWidget {
       context: context,
       builder: (BuildContext bc) {  //Build to create the bottom sheet page
         return ChangePasswordPage(
-          false, //isTokenpage
-          "Informe abaixo o email utilizado em seu cadastro para recuperar a senha.", //Text
-          "Email", //Hint
+          text: "Informe abaixo o email utilizado em seu cadastro para recuperar a senha.",
+          hint: "Email",
+          isTokenPage: false,
         );
       });
   }

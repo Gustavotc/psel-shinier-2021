@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class ProfileItem extends StatelessWidget {
   final String label; // Input label text
   final String hint; // Hint Text
-  final ValueChanged onChanged; // On Value changed Function
   final bool isCPF; // Checks keyboard type
 
   //Constructor to receive the parameters
@@ -12,7 +11,6 @@ class ProfileItem extends StatelessWidget {
     this.isCPF = false,   //Sets text keyboard as default
     @required this.label, 
     @required this.hint, 
-    @required this.onChanged,
     }); 
 
   @override
@@ -28,8 +26,6 @@ class ProfileItem extends StatelessWidget {
           ),
         ),
         TextField( //Custom TextField, 
-          onChanged: onChanged, //Sets onChanged function received by the constructor (should be replaced by controller)
-          maxLength: isCPF ?  14 : null, //Case it's a CPF, it must have 14 digits counting with . and -
           keyboardType: isCPF ? TextInputType.number : TextInputType.text, //Sets numerical keyboard if it's a numerical input
           decoration: InputDecoration(
             hintText: hint, //Hint text received by the constructor

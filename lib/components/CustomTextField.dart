@@ -4,17 +4,15 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   //Variables
   final String hint; // Hint Text
-  final ValueChanged onChanged; // On Valeu changed Function
   final bool password; // Obscure text  and keyboardType verification
-  final bool isTokenPage;
+  final bool isHintTextBlack; // Checks if the hint color need to be black
 
   //Constructor with required variables
   const CustomTextField({
     Key key,
-    @required this.onChanged,
-    @required this.hint,
-    @required this.password,
-    this.isTokenPage = false,
+    @required this.hint,  //Hint text always needs to be informed
+    this.password = false,  //Need to be informed when it's a password textfield
+    this.isHintTextBlack = false, //It need to be informed as true only when it's the token page
   }) : super(key: key);
 
   @override
@@ -23,35 +21,35 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         obscureText:
             password ? true : false, //If it's a passwoord, hides the text
-        keyboardType: password
+        keyboardType: password //Defines the keyboard type
             ? TextInputType.text
-            : TextInputType.emailAddress, //Defines the keyboard type
+            : TextInputType.emailAddress, 
         decoration: InputDecoration(
-          hintText: hint, //Hint text received
+          hintText: hint, //sets the Hint text received by the constructor
           hintStyle: TextStyle(
-            color: isTokenPage ? Colors.black : null,
+            color: isHintTextBlack ? Colors.black : null, //sets the hint text color to black when desired
           ),
-          border: InputBorder.none,
+          border: InputBorder.none, //Remove bottom border
         ),
-        onChanged:
-            onChanged, //Value Changed Function received by the constructor
       ),
     );
   }
 }
 
 class TextFieldContainer extends StatelessWidget {
+  
   final Widget child; //Final Widget (child) variable
 
-  // Construtor passing widget (child)
-  const TextFieldContainer(
-      {Key key, @required this.child //Variable recieves the parameter
-      })
-      : super(key: key);
+  //Construtor to receive the child as a parameter
+  const TextFieldContainer({
+      Key key, 
+      @required this.child //Variable receives the CustomTextField as child
+      }): super(key: key);
+      
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Container( //Creates a custom shape for the TextField
       margin: EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
@@ -59,7 +57,7 @@ class TextFieldContainer extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: child, //Child recieves the widget from the constructor
+      child: child, //sets the CustomTextField received by the constructor as child
     );
   }
 }

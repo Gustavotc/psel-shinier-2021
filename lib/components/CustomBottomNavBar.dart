@@ -25,7 +25,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   @override
   void initState() {
     super.initState();
-    _currentPage = widget.defaultIndex; //On firts build, sets the default page
+    _currentPage = widget.defaultIndex; //On first build, sets the default page
   }
 
   @override
@@ -34,7 +34,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       decoration: BoxDecoration( //Creates a custom layout for the navBar
         boxShadow: [BoxShadow(  //Custom shadow for the navBar
           color: Colors.black, //Shadow color
-          blurRadius: 10, //Shadow blurRadius
+          blurRadius: 8, //Shadow blurRadius
           spreadRadius: 0, //Shadow spreadRadius
         )],
         color: Color(0xff332F27), //Custom navBar color
@@ -43,7 +43,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             ),
       ),
       child: Padding( //Space between navBar top and itens
-        padding: const EdgeInsets.only(top: 8.0),
+        padding: const EdgeInsets.only(top: 16.0),
         child: Column( //Column to wrap the NavBar
           mainAxisSize: MainAxisSize.min, //Navbar height will only be enough to wrap the childrens
           children: [

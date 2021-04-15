@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Class to create a custom text with the user's name
 class TextUserName extends StatelessWidget {
 
   final String name;

@@ -28,12 +28,10 @@ class UserProfileInfos extends StatelessWidget {
           ProfileItem( //Custom widget to User full name
             label: "Nome completo",
             hint: "João Paulo de Souza",
-            onChanged: (value) {},
           ),
           ProfileItem( //Custom widget to User email
             label: "Email",
             hint: "jpsouza@gmail.com",
-            onChanged: (value) {},
           ),
           Row( //Custom widget to wrap city and state fields
             children: <Widget>[
@@ -42,7 +40,6 @@ class UserProfileInfos extends StatelessWidget {
                 child: ProfileItem(
                   label: "Cidade",
                   hint: "São Paulo",
-                  onChanged: (value) {},
                 ),
               ),
               SizedBox(
@@ -53,7 +50,6 @@ class UserProfileInfos extends StatelessWidget {
                 child: ProfileItem(
                   label: "Estado",
                   hint: "SP",
-                  onChanged: (value) {},
                 ),
               ),
             ],
@@ -61,7 +57,6 @@ class UserProfileInfos extends StatelessWidget {
           ProfileItem( //Custom widget to User CPF
             label: "CPF",
             hint: "222.111.333-44",
-            onChanged: (value) {/* To-Do onChanged */},
             isCPF: true, //Sets numerical keyboard
           ),            
         ],

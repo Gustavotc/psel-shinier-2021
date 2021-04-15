@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'Screens/Home/home_screen.dart';
+import 'package:psel_shinier_2021/routes.dart';
 
 void main() {
   runApp(MaterialApp(
     title: "Processo Seletivo",
-    home: HomeScreen(),
+    initialRoute: '/',
+    onGenerateRoute: Routes.generateRoutes,
     debugShowCheckedModeBanner: false,
   ));
 }

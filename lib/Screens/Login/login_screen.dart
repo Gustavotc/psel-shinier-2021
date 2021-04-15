@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
         leading: IconButton( //AppBar Button on the left
             icon: Icon(Icons.arrow_back, size: 30) //Icon
             , onPressed: (){/* To-Do onPressed */ }, //onPressed Function
-            color: Colors.blue, //Icon Color
+            color: Color(0xff4472C4), //Icon Color
             ),
         ),
       backgroundColor: Color(0xff332F27), //Scaffold background color
