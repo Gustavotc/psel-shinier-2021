@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:psel_shinier_2021/Screens/More/more_screen.dart';
 import 'package:psel_shinier_2021/Screens/Profile/profile_screen.dart';
 import 'package:psel_shinier_2021/components/CustomBottomNavBar.dart';
 
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Text("1"),
       Text("2"),
       ProfileScreen(), //Loads the Profile Screen
-      Text("4"),
+      MoreScreen(), //Load the More Screen
     ];
 
     return SafeArea(  //Ensure that all widgets will be visible
