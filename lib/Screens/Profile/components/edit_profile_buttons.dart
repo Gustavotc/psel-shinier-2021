@@ -19,8 +19,8 @@ class EditProfileButtons extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ChangePasswordButton(),
-          SizedBox(height: size.height * 0.03),
+          ChangePasswordButton(), //Shows custom change password button
+          SizedBox(height: size.height * 0.03), //Space between buttons
           CustomButton( //Custom buttom to save profile informations modifications
               text: "Salvar",
               onPressed: () {/* To-Do onPressed (Save informations) */}

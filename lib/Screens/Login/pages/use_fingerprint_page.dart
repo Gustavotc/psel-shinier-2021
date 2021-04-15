@@ -3,7 +3,7 @@ import 'package:psel_shinier_2021/Screens/Login/components/custom_decoration_con
 import 'package:psel_shinier_2021/components/CustomButton.dart';
 
 //Function to open a bottom sheet with sign-in informations
-void useFirgerPrintPage(context) {
+void buildUseFirgerPrintPage(context) {
   Size size = MediaQuery.of(context).size;  //Screen size variable
 
   showModalBottomSheet( // Open bottom sheet

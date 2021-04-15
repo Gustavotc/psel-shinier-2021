@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:psel_shinier_2021/Screens/Profile/pages/change_password_page.dart';
 
 //Class to create a custom change password button
 class ChangePasswordButton extends StatelessWidget {
@@ -9,7 +10,7 @@ class ChangePasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:() {/*To-Do onTap (changes user password) */},
+      onTap:() => _buildChangePasswordPage(context),
       child: Row(
         mainAxisSize: MainAxisSize.min, //Row only wrap the children
         children: <Widget>[
@@ -29,4 +30,24 @@ class ChangePasswordButton extends StatelessWidget {
       ),
     );
   }
+
+  _buildChangePasswordPage(context){
+    showModalBottomSheet( // Open bottom sheet
+      shape: RoundedRectangleBorder(   //Shape of the bottom sheet (circular top borders )
+          borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(15),
+        topRight: Radius.circular(15),
+      )),
+      barrierColor: Colors.black45, //Background color page
+      elevation: 10, //Elevation of the bottom sheet page
+      context: context,
+      builder: (BuildContext bc) {  //Build to create the bottom sheet page
+        return ChangePasswordPage(
+          false, //isTokenpage
+          "Informe abaixo o email utilizado em seu cadastro para recuperar a senha.", //Text
+          "Email", //Hint
+        );
+      });
+  }
+
 }

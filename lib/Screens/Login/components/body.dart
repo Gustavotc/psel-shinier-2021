@@ -34,7 +34,7 @@ class _BodyState extends State<Body> {
               TextLogin(), //Simple Text
               SizedBox(height: size.height * 0.01,), //Space between Login text and Forgot  my password text
               ForgotPasswordButton( // Button to show the FotgetPasswordPage
-                onTap: () => forgotPasswordPage(context), //Calls forget password page
+                onTap: () => buildForgotPasswordPage(context), //Calls forget password page
               ),
               SizedBox(height: size.height * 0.03,), //Space between Forgot  my password text and Email input textField
               CustomTextField( //Email input textField 
@@ -82,7 +82,7 @@ class _BodyState extends State<Body> {
   _signin(){
     FocusScope.of(context).unfocus(); //Removes the keyboard focus to close it (prevents errors case the login fails)
     _useFingerPrint //Verifies the authentication method
-        ? useFirgerPrintPage(context) //Case true: use fingerprint sensor
+        ? buildUseFirgerPrintPage(context) //Case true: use fingerprint sensor
         : () {
             /* To-Do onPressed case Switch is off */
           };

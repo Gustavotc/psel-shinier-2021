@@ -22,7 +22,7 @@ class ForgotPasswordButton extends StatelessWidget {
           fontWeight: FontWeight.w400
         ),
       ),
-      onTap: onTap,                 //Sets onTap function received by the constructor
+      onTap: onTap, //Sets onTap function received by the constructor
     );
   }
 

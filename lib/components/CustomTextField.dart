@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final String hint; // Hint Text
   final ValueChanged onChanged; // On Valeu changed Function
   final bool password; // Obscure text  and keyboardType verification
+  final bool isTokenPage;
 
   //Constructor with required variables
   const CustomTextField({
@@ -13,6 +14,7 @@ class CustomTextField extends StatelessWidget {
     @required this.onChanged,
     @required this.hint,
     @required this.password,
+    this.isTokenPage = false,
   }) : super(key: key);
 
   @override
@@ -26,6 +28,9 @@ class CustomTextField extends StatelessWidget {
             : TextInputType.emailAddress, //Defines the keyboard type
         decoration: InputDecoration(
           hintText: hint, //Hint text received
+          hintStyle: TextStyle(
+            color: isTokenPage ? Colors.black : null,
+          ),
           border: InputBorder.none,
         ),
         onChanged:

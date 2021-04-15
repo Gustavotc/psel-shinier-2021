@@ -5,7 +5,7 @@ import 'package:psel_shinier_2021/components/CustomTextField.dart';
 import '../components/custom_decoration_container.dart';
 
 //Function to open a bottom sheet to recover password
-void forgotPasswordPage(context) {
+void buildForgotPasswordPage(context) {
   Size size = MediaQuery.of(context).size; //Screen size variable
 
   showModalBottomSheet( // Open bottom sheet
