@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:psel_shinier_2021/Screens/More/more_screen.dart';
 import 'package:psel_shinier_2021/Screens/Profile/profile_screen.dart';
+import 'package:psel_shinier_2021/components/CustomAppBar.dart';
 import 'package:psel_shinier_2021/components/CustomBottomNavBar.dart';
 
 //Classe to create the Home page interface
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(  //Ensure that all widgets will be visible
       child: Scaffold( //Page structure
+      appBar: buildAppBar(false),
         body: _screns[_currentPage], //Body shows the selected index page
         bottomNavigationBar: CustomBottomNavBar( //Custom navBar
           defaultIndex: 0, //Default page initialization

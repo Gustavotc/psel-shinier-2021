@@ -81,9 +81,9 @@ class _BodyState extends State<Body> {
     _useFingerPrint //Verifies the authentication method
         ? _buildUseFirgerPrintPage(context) //Case true: use fingerprint sensor
         : /* To-Do verify user credencials */
-            Navigator.pushNamed(context, '/home'); //Shows Home page after validation
+            Navigator.popAndPushNamed(context, '/home'); //Shows Home page after validation
   }
-
+  
   //Function to build the ForgotPasswordPage
   _buildForgotPasswordPage(context) {
   
