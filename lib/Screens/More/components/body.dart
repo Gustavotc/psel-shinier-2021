@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:psel_shinier_2021/Screens/More/components/social_medias.dart';
+import 'package:psel_shinier_2021/Screens/More/pages/contact_page.dart';
 import 'package:psel_shinier_2021/Screens/More/pages/delete_acc_page.dart';
 
 import 'custom_exit_button.dart';
@@ -26,7 +27,7 @@ class MoreBody extends StatelessWidget {
           CustomMoreItem(
             //Create contact us option item
             text: "Fale conosco",
-            onTap: () {},
+            onTap: () => _buildContactPage(context),
           ),
           CustomMoreItem(
             //Create terms of use option item
@@ -68,5 +69,19 @@ class MoreBody extends StatelessWidget {
         builder: (BuildContext bc) { //Build to create the bottom sheet page
           return DeleteAccPage(); //Shows ForgetPasswordPage
         });
+  }
+
+  //Function to show the Contact options and redirect user
+  Future <void> _buildContactPage(context) async {
+
+    //Waits for user choice
+    switch (await showDialog(
+      context: context, 
+      builder: (BuildContext bc) {
+        return CustomContactPage(); //Shows contact options page
+      }
+    )) {
+      //To-Do Switch cases to redirect user
+    }
   }
 }

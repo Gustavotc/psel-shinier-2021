@@ -18,8 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
   
     final List<Widget> _screns = [ //List to create an index for each page
-      Text("1"),
-      Text("2"),
+      Text("Início"),
+      Text("Notificações"),
       ProfileScreen(), //Loads the Profile Screen
       MoreScreen(), //Load the More Screen
     ];
