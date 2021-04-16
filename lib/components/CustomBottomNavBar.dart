@@ -53,12 +53,12 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                   flex: 2, //Division proporsion
                   child: Row( //Row with first two itens
                     children: [
-                      buildNavbarItem( //Custom navBar Home item
+                      _buildNavbarItem( //Custom navBar Home item
                         Icons.home_outlined, //Icon
                         "Início", //Label
                         0, //Page index
                       ),
-                       buildNavbarItem( //Custom navBar Notifications item
+                       _buildNavbarItem( //Custom navBar Notifications item
                         Icons.star_border_rounded, //Icon
                         "Notificações", //Label
                         1, //Page index
@@ -71,12 +71,12 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                   flex: 2, //Division proporsion
                   child: Row( //Row with last two itens
                     children: [
-                      buildNavbarItem( //Custom navBar Profile item
+                      _buildNavbarItem( //Custom navBar Profile item
                         Icons.person, //icon
                         "Perfil", //Label
                         2, //Page index
                       ),
-                       buildNavbarItem( //Custom navBar More item
+                       _buildNavbarItem( //Custom navBar More item
                         Icons.menu, //Icon
                         "Mais", //Label
                         3, //Page index
@@ -94,7 +94,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   }
 
  //Function to create navBar itens, receiving it's parameters
-  buildNavbarItem(IconData icon, String text, int index){
+  _buildNavbarItem(IconData icon, String text, int index){
     return Expanded( //Space control
       child: InkWell( //Makes the itens touchable
         onTap: (){ //Refresh the page, loading the refered index screen

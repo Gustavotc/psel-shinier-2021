@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(  //Ensure that all widgets will be visible
       child: Scaffold( //Page structure
+      extendBodyBehindAppBar: true, //Body and AppBar are top aligned
       appBar: buildAppBar(false),
         body: _screns[_currentPage], //Body shows the selected index page
         bottomNavigationBar: CustomBottomNavBar( //Custom navBar
