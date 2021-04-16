@@ -16,7 +16,7 @@ class CustomMoreItem extends StatelessWidget {
     return Column( //Column to wrap everything
       children: [
         InkWell( //Makes the widget touchable
-          onTap: onTap, //setes the onTap function received by the constructor
+          onTap: onTap, //sets the onTap function received by the constructor
           highlightColor: Colors.transparent, //removes the color highlight when pressed
           splashColor: Colors.transparent, //removes the splash color when pressed
           child: Row( //Row to wrap Text and Icon

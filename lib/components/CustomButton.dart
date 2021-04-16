@@ -34,7 +34,6 @@ class CustomButton extends StatelessWidget {
       onPressed: () {
         onPressed();
       },
-      splashColor: Colors.lightBlue,
     );
   }
 }
